@@ -1,5 +1,5 @@
 from config import support_id, canceled_action, success_ban, error_text, sender_started, adm_menu_text, sender_ended, \
-    success_pardon
+    success_pardon, notification
 from data import get_all_user_ids, ban_user, pardon_user, get_user_by_username
 from markups import create_admin_menu_markup, create_del_menu_markup
 from bot import bot
@@ -30,7 +30,7 @@ def show_info_user(call):
     bot.register_next_step_handler(call.message, get_info_user, call.message)
 
 
-def new_user_notification(user):
+def new_user_notification(username):
     bot.send_message(support_id, text=notification.format(username=username))
 
 
